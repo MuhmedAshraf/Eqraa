@@ -12,10 +12,10 @@ class CustomBookImage extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio(
         aspectRatio: 2.6 / 4,
-        child: Image(
-          // imageUrl: imageUrl,
-          fit: BoxFit.fill, image: AssetImage( imageUrl),
-//          errorWidget: (context, url, error) => const Icon(Icons.error,),
+        child: CachedNetworkImage(
+           imageUrl: imageUrl,
+          fit: BoxFit.fill,
+          errorWidget: (context, url, error) => const Icon(Icons.error,),
         ),
       ),
     );

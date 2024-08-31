@@ -1,49 +1,62 @@
+import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../Core/utlis/assets.dart';
 import '../../../../../Core/utlis/styles.dart';
 import 'custom_book_image.dart';
 
 class CustomBookItem extends StatelessWidget {
   const CustomBookItem({
     super.key,
+    required this.book,
   });
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
+    var size= MediaQuery.of(context).size;
     return Card(
       color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(15),
+      child: Padding(
+        padding: const EdgeInsets.all(15),
         child: SizedBox(
           height: 130,
           child: Row(
             children: [
               CustomBookImage(
-                imageUrl: AssetImages.testBook,
+                imageUrl: book.thumbnail ?? "",
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacer(),
-                  Text(
-                    "Mohamed Ashraf",
-                    style: AppStyles.textStyle20,
-                  ),
+                  const Spacer(),
                   SizedBox(
+                    width: size.width * 0.5,
+                    child: Text(
+                      book.title,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: AppStyles.textStyle20,
+                    ),
+                  ),
+                  const SizedBox(
                     height: 5,
                   ),
-                  Text(
-                    'by F. Scott Fitzgerald',
-                    style: AppStyles.textStyle14,
+                  SizedBox(
+                    width:size.width * 0.5 ,
+                    child: Text(
+                      book.authors ?? "",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppStyles.textStyle14,
+                    ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ],
