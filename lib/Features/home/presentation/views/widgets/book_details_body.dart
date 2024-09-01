@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eqraa/Core/shared_widgets/main_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../Core/utlis/styles.dart';
@@ -14,7 +15,7 @@ class BookDetailsBody extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,19 +29,42 @@ class BookDetailsBody extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Center(child: Text(book.title,style: AppStyles.textStyle20.copyWith(fontWeight: FontWeight.bold),)),
+            //! Title
+            Center(
+                child: Text(
+              book.title,
+              style:
+                  AppStyles.textStyle24.copyWith(fontWeight: FontWeight.bold),
+            )),
             const SizedBox(
               height: 10,
             ),
-            Text('Authors : ${book.authors ?? 'No authors available'}',style: AppStyles.textStyle20,),
+            //! Authors
+            Center(
+                child: Text(
+              'By ${book.authors ?? 'No authors available'}',
+              style: AppStyles.textStyle20,
+            )),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
-            Text('Category : ${book.category ?? 'un defined '}',style: AppStyles.textStyle20,),
+            //! Category
+            Text(
+              'Category : ${book.category ?? 'un defined '}',
+              style: AppStyles.textStyle20,
+            ),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
-            Text('Description : ${book.description}',style: AppStyles.textStyle14,),
+            //! Description
+            Text(
+              'Description : ${book.description}',
+              style: AppStyles.textStyle16,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(child: MainButton(innerText: 'Read Book', onPressed: (){}),),
           ],
         ),
       ),
