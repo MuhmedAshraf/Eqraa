@@ -3,6 +3,7 @@ import 'package:eqraa/Core/utlis/colors.dart';
 import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/book_details_body.dart';
+import 'package:eqraa/Features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
@@ -15,6 +16,7 @@ class BookDetailsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.appBar,
+        automaticallyImplyLeading: false,
         iconTheme: const IconThemeData(color: Colors.white),
         titleTextStyle: AppStyles.title18,
         title: Text(
@@ -27,6 +29,8 @@ class BookDetailsView extends StatelessWidget {
       backgroundColor: AppColors.bgColor,
       body: BookDetailsBody(
         book: book,
+      ),
+      bottomNavigationBar: const CustomBottomNavBar(
       ),
     );
   }

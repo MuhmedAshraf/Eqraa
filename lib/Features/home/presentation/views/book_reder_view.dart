@@ -22,9 +22,13 @@ class BookReaderScreen extends StatelessWidget {
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: WebView(
-        initialUrl: bookUrl,
-        javascriptMode: JavascriptMode.unrestricted,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: WebView(
+            initialUrl: bookUrl,
+            javascriptMode: JavascriptMode.unrestricted,
+          ),
+        ),
       ),
     );
   }

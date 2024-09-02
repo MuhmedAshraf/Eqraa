@@ -1,10 +1,10 @@
 import 'package:eqraa/Core/utlis/colors.dart';
 import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
+import 'package:eqraa/Features/home/presentation/views/favorite_view.dart';
 import 'package:eqraa/Features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 enum MenuState { home, favorite, search }
 
@@ -34,10 +34,10 @@ class CustomBottomNavBar extends StatelessWidget {
             color: const Color(0xFFDADADA).withOpacity(0.15),
           ),
         ],
-        // borderRadius: const BorderRadius.only(
-        //   bottomLeft: Radius.circular(40),
-        //   bottomRight: Radius.circular(40),
-        // ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
       ),
       child: SafeArea(
         top: false,
@@ -48,9 +48,12 @@ class CustomBottomNavBar extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.home,size: 16,),
+                  icon: const Icon(
+                    Icons.home,
+                    size: 16,
+                  ),
                   color: MenuState.home == selectedMenu
-                      ?  AppColors.selectedIcon
+                      ? AppColors.selectedIcon
                       : inactiveIconColor,
                   onPressed: () {
                     Navigator.of(context).push(
@@ -58,36 +61,52 @@ class CustomBottomNavBar extends StatelessWidget {
                     );
                   },
                 ),
-                 Text('Home',style: AppStyles.textStyle14.copyWith(color: Colors.white),)
+                Text(
+                  'Home',
+                  style: AppStyles.textStyle14.copyWith(color: Colors.white),
+                )
               ],
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.favorite,size: 16,),
+                  icon: const Icon(
+                    Icons.favorite,
+                    size: 16,
+                  ),
                   color: MenuState.favorite == selectedMenu
                       ? AppColors.selectedIcon
                       : inactiveIconColor,
                   onPressed: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(builder: (context) {
-                    //     return BlocProvider(
-                    //       create: (context) => FavoritesCubit()..loadFavorites(),
-                    //       child: FavoritesScreen(), // استخدام favBooks هنا
-                    //     );
-                    //   }),
-                    // );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const BookFavoriteView();
+                          // return BlocProvider(
+                          //   create: (context) =>
+                          //       FavoritesCubit()..loadFavorites(),
+                          //   child: FavoritesScreen(), // استخدام favBooks هنا
+                          // );
+                        },
+                      ),
+                    );
                   },
                 ),
-                Text('Favorite',style: AppStyles.textStyle14.copyWith(color: Colors.white),)
+                Text(
+                  'Favorite',
+                  style: AppStyles.textStyle14.copyWith(color: Colors.white),
+                )
               ],
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: const Icon(Icons.search,size: 16,),
+                  icon: const Icon(
+                    Icons.search,
+                    size: 16,
+                  ),
                   color: MenuState.search == selectedMenu
                       ? AppColors.selectedIcon
                       : inactiveIconColor,
@@ -99,7 +118,10 @@ class CustomBottomNavBar extends StatelessWidget {
                     // );
                   },
                 ),
-                Text('Search',style: AppStyles.textStyle14.copyWith(color: Colors.white),)
+                Text(
+                  'Search',
+                  style: AppStyles.textStyle14.copyWith(color: Colors.white),
+                )
               ],
             ),
           ],
