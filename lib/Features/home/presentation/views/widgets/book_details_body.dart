@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eqraa/Core/shared_widgets/main_button.dart';
+import 'package:eqraa/Features/home/presentation/views/book_reder_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../Core/utlis/styles.dart';
@@ -64,7 +65,20 @@ class BookDetailsBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Center(child: MainButton(innerText: 'Read Book', onPressed: (){}),),
+            //! Main Button
+            Center(
+              child: MainButton(
+                  innerText: 'Read Book',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            BookReaderScreen(bookUrl: book.url),
+                      ),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
