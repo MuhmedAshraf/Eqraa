@@ -23,11 +23,9 @@ class BookReaderScreen extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: WebView(
-            initialUrl: bookUrl,
-            javascriptMode: JavascriptMode.unrestricted,
-          ),
+        child: WebView(
+          initialUrl: bookUrl,
+          javascriptMode: JavascriptMode.unrestricted,
         ),
       ),
     );

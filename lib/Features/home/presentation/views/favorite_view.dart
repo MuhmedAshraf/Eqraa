@@ -1,4 +1,5 @@
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
+import 'package:eqraa/Features/home/presentation/views/book_details_view.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,54 +54,59 @@ class FavoriteListView extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ListTile(
-                    contentPadding: const EdgeInsets.all(8.0), // إضافة مسافة داخلية
-                    title: Row(
-                      children: [
-                        // صورة الكتاب
-                        book.thumbnail != null
-                            ? Container(
-                                width: 80, // عرض الصورة
-                                height: 120, // ارتفاع الصورة
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  image: DecorationImage(
-                                    image: NetworkImage(book.thumbnail!),
-                                    fit: BoxFit.cover,
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView(book: book)));
+                    },
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.all(8.0), // إضافة مسافة داخلية
+                      title: Row(
+                        children: [
+                          // صورة الكتاب
+                          book.thumbnail != null
+                              ? Container(
+                                  width: 80, // عرض الصورة
+                                  height: 120, // ارتفاع الصورة
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    image: DecorationImage(
+                                      image: NetworkImage(book.thumbnail!),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
+                                )
+                              : const SizedBox(
+                                  width: 80,
+                                  height: 120,
+                                ), // مساحة فارغة إذا لم توجد صورة
+                          const SizedBox(
+                            width: 10,
+                          ), // مسافة بين الصورة والعنوان
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  book.title,
+                                  style: const TextStyle(fontWeight: FontWeight.bold),
                                 ),
-                              )
-                            : const SizedBox(
-                                width: 80,
-                                height: 120,
-                              ), // مساحة فارغة إذا لم توجد صورة
-                        const SizedBox(
-                          width: 10,
-                        ), // مسافة بين الصورة والعنوان
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                book.title,
-                                style: const TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                book.authors ?? 'Unknown Author',
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
+                                Text(
+                                  book.authors ?? 'Unknown Author',
+                                  style: const TextStyle(color: Colors.grey),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        // أيقونة القلب
-                        IconButton(
-                          icon: const Icon(Icons.favorite, color: Colors.red),
-                          onPressed: () {
-                            context.read<FavoritesCubit>().toggleFavorite(book);
-                            context.read<FavoritesCubit>().removeFromFavorites(book);
-                          },
-                        ),
-                      ],
+                          // أيقونة القلب
+                          IconButton(
+                            icon: const Icon(Icons.favorite, color: Colors.red),
+                            onPressed: () {
+                              context.read<FavoritesCubit>().toggleFavorite(book);
+                              context.read<FavoritesCubit>().removeFromFavorites(book);
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const Padding(
