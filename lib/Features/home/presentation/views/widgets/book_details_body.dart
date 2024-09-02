@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../Core/utlis/styles.dart';
 import '../../../data/models/book_model/book_model.dart';
-import '../../view_model/favorite_cubit/favorite_ubit.dart';
+import '../../view_model/favorite_cubit/favorite_cubit.dart';
 
 class BookDetailsBody extends StatelessWidget {
   const BookDetailsBody({Key? key, required this.book}) : super(key: key);

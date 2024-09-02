@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../Core/utlis/colors.dart';
 import '../../../../Core/utlis/styles.dart';
-import '../view_model/favorite_cubit/favorite_ubit.dart';
+import '../view_model/favorite_cubit/favorite_cubit.dart';
 
 class BookFavoriteView extends StatelessWidget {
   const BookFavoriteView({super.key});
