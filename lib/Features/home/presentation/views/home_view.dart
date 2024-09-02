@@ -1,3 +1,4 @@
+import 'package:eqraa/Features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/custom_drawer.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,10 @@ class HomeView extends StatelessWidget {
       ),
       drawer: const CustomDrawer(),
       body: const HomeViewBody(),
+      bottomNavigationBar: const CustomBottomNavBar(
+        selectedMenu: MenuState.home,
+      ),
+
     );
   }
 }

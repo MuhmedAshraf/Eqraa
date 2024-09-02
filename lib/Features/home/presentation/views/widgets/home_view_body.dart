@@ -9,7 +9,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(left: 10,right: 10,top: 10),
         child: BooksListView(),
       ),
     );
