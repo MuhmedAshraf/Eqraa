@@ -34,7 +34,7 @@ class BookCubit extends Cubit<BookState> {
     final response = await repo.searchBooks(query);
     response.fold(
       (failure) => emit(BookFailure(errMessage: failure.errMessage)),
-      (books) => BookSuccess(books: books),
+      (books) => emit(BookSuccess(books: books)),
     );
   }
 }

@@ -1,4 +1,9 @@
+import 'package:eqraa/Core/utlis/colors.dart';
+import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../view_model/book_cubit/book_cubit.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({super.key, required this.controller});
@@ -16,14 +21,27 @@ class SearchBox extends StatelessWidget {
           ),
           child: TextField(
             controller: controller,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               contentPadding:
-                  EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               border: InputBorder.none,
               focusedBorder: InputBorder.none,
               enabledBorder: InputBorder.none,
               hintText: "Write the title or author of the book",
-              prefixIcon: Icon(Icons.search),
+              hintStyle: AppStyles.textStyle14,
+              prefixIcon: IconButton(
+                icon: const Icon(
+                  Icons.search,
+
+                ),
+                onPressed: () {
+                  final query = controller.text;
+                  if (query.isNotEmpty) {
+                    context.read<BookCubit>().searchBooks(query);
+                  }
+                },
+              ),
+
             ),
           ),
         ));
