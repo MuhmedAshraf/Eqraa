@@ -8,4 +8,5 @@ abstract class HomeRepo{
 
   Future<Either<Failure,List<BookModel>>> getNewestBooks();
   Future<Either<Failure,List<BookModel>>> getBooksByCategory(String category);
+  Future<Either<Failure,List<BookModel>>> searchBooks(String query);
 }

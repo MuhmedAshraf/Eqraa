@@ -28,4 +28,13 @@ class BookCubit extends Cubit<BookState> {
       (books) => emit(BookSuccess(books: books)),
     );
   }
+
+  Future<void> searchBooks(String query) async {
+    emit(BookLoading());
+    final response = await repo.searchBooks(query);
+    response.fold(
+      (failure) => emit(BookFailure(errMessage: failure.errMessage)),
+      (books) => BookSuccess(books: books),
+    );
+  }
 }

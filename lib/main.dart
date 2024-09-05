@@ -21,11 +21,12 @@ class Eqraa extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               BookCubit(repo: HomeRepoImplement(api: DioConsumer(dio: Dio())))
-                ..getNewestBooks(),
+
         ),
         BlocProvider(
           create: (context) => FavoritesCubit()..loadFavorites(),
         ),
+
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

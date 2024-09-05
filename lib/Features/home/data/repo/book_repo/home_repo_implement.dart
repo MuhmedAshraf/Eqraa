@@ -13,19 +13,23 @@ class HomeRepoImplement implements HomeRepo {
 
   @override
   Future<Either<Failure, List<BookModel>>> getNewestBooks() async {
-    return await _fetchBooks(endPoint: EndPoints.newestBooks );
+    return await _fetchBooks(endPoint: EndPoints.newestBooks);
   }
-
 
   @override
-  Future<Either<Failure, List<BookModel>>> getBooksByCategory(String category) async{
-
-    return await _fetchBooks(endPoint:'${EndPoints.categoryBooks}q=subject:$category');
-
+  Future<Either<Failure, List<BookModel>>> getBooksByCategory(
+      String category) async {
+    return await _fetchBooks(
+        endPoint: '${EndPoints.categoryBooks}q=subject:$category');
   }
 
+  @override
+  Future<Either<Failure, List<BookModel>>> searchBooks(String query) async {
+    return await _fetchBooks(endPoint: '${EndPoints.searchBooks}$query');
+  }
 
-  Future<Either<Failure, List<BookModel>>> _fetchBooks({required String endPoint}) async {
+  Future<Either<Failure, List<BookModel>>> _fetchBooks(
+      {required String endPoint}) async {
     try {
       final response = await api.get(endPoint);
       List<BookModel> books = [];
@@ -34,12 +38,10 @@ class HomeRepoImplement implements HomeRepo {
       }
       return Right(books);
     } catch (e) {
-      if(e is DioException){
+      if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
     }
   }
-
-
 }

@@ -3,6 +3,7 @@ import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
 import 'package:eqraa/Features/home/presentation/views/favorite_view.dart';
 import 'package:eqraa/Features/home/presentation/views/home_view.dart';
+import 'package:eqraa/Features/home/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -83,11 +84,6 @@ class CustomBottomNavBar extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) {
                           return const BookFavoriteView();
-                          // return BlocProvider(
-                          //   create: (context) =>
-                          //       FavoritesCubit()..loadFavorites(),
-                          //   child: FavoritesScreen(), // استخدام favBooks هنا
-                          // );
                         },
                       ),
                     );
@@ -111,11 +107,11 @@ class CustomBottomNavBar extends StatelessWidget {
                       ? AppColors.selectedIcon
                       : inactiveIconColor,
                   onPressed: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (context) => BooksSearchView(),
-                    //   ),
-                    // );
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SearchView(),
+                      ),
+                    );
                   },
                 ),
                 Text(
