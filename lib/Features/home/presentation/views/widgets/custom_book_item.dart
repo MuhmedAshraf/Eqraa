@@ -14,11 +14,15 @@ class CustomBookItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size= MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return GestureDetector(
-
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>  BookDetailsView(book: book,)));
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => BookDetailsView(
+                      book: book,
+                    )));
       },
       child: Card(
         color: Colors.white,
@@ -54,7 +58,7 @@ class CustomBookItem extends StatelessWidget {
                       height: 5,
                     ),
                     SizedBox(
-                      width:size.width * 0.5 ,
+                      width: size.width * 0.5,
                       child: Text(
                         book.authors ?? "",
                         maxLines: 2,

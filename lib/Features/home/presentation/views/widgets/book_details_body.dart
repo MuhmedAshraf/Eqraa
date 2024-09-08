@@ -3,7 +3,6 @@ import 'package:eqraa/Core/shared_widgets/main_button.dart';
 import 'package:eqraa/Features/home/presentation/views/book_reder_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../Core/utlis/styles.dart';
 import '../../../data/models/book_model/book_model.dart';
 import '../../view_model/favorite_cubit/favorite_cubit.dart';

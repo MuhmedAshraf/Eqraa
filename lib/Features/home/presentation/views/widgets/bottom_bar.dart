@@ -5,7 +5,6 @@ import 'package:eqraa/Features/home/presentation/views/favorite_view.dart';
 import 'package:eqraa/Features/home/presentation/views/home_view.dart';
 import 'package:eqraa/Features/home/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum MenuState { home, favorite, search }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../Core/shared_widgets/custom_error_widget.dart';
 import '../../../../../Core/shared_widgets/custom_loading.dart';
 import '../../view_model/book_cubit/book_cubit.dart';
@@ -19,11 +18,9 @@ class BookCategoryBody extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, i) =>
                   CustomBookItem(book: state.books[i]));
-        }
-        else if (state is BookFailure) {
+        } else if (state is BookFailure) {
           return CustomErrorWidget(errorText: state.errMessage);
-        }
-        else {
+        } else {
           return const CustomLoading();
         }
       },

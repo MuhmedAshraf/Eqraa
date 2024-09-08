@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eqraa/Core/utlis/colors.dart';
 import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
@@ -30,9 +29,7 @@ class BookDetailsView extends StatelessWidget {
       body: BookDetailsBody(
         book: book,
       ),
-      bottomNavigationBar: const CustomBottomNavBar(
-      ),
+      bottomNavigationBar: const CustomBottomNavBar(),
     );
   }
 }
-

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/platform_interface.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
 import '../../../../Core/utlis/colors.dart';
 import '../../../../Core/utlis/styles.dart';
 
@@ -13,7 +12,7 @@ class BookReaderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar: AppBar(
         backgroundColor: AppColors.appBar,
         title: const Text(
           "Let's Read",

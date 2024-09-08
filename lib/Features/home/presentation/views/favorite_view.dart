@@ -3,7 +3,6 @@ import 'package:eqraa/Features/home/presentation/views/book_details_view.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../Core/utlis/colors.dart';
 import '../../../../Core/utlis/styles.dart';
 import '../view_model/favorite_cubit/favorite_cubit.dart';
@@ -55,11 +54,16 @@ class FavoriteListView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BookDetailsView(book: book)));
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  BookDetailsView(book: book)));
                     },
                     child: ListTile(
-                      contentPadding: const EdgeInsets.all(8.0), // إضافة مسافة داخلية
+                      contentPadding: const EdgeInsets.all(8.0),
+                      // إضافة مسافة داخلية
                       title: Row(
                         children: [
                           // صورة الكتاب
@@ -88,7 +92,8 @@ class FavoriteListView extends StatelessWidget {
                               children: [
                                 Text(
                                   book.title,
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   book.authors ?? 'Unknown Author',
@@ -101,8 +106,12 @@ class FavoriteListView extends StatelessWidget {
                           IconButton(
                             icon: const Icon(Icons.favorite, color: Colors.red),
                             onPressed: () {
-                              context.read<FavoritesCubit>().toggleFavorite(book);
-                              context.read<FavoritesCubit>().removeFromFavorites(book);
+                              context
+                                  .read<FavoritesCubit>()
+                                  .toggleFavorite(book);
+                              context
+                                  .read<FavoritesCubit>()
+                                  .removeFromFavorites(book);
                             },
                           ),
                         ],

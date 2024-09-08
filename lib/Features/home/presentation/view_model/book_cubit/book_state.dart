@@ -8,8 +8,7 @@ class BookInitial extends BookState {}
 class BookLoading extends BookState {}
 
 class BookSuccess extends BookState {
-
-  final List<BookModel> books ;
+  final List<BookModel> books;
 
   BookSuccess({required this.books});
 }

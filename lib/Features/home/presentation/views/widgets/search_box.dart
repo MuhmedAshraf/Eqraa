@@ -1,8 +1,6 @@
-import 'package:eqraa/Core/utlis/colors.dart';
 import 'package:eqraa/Core/utlis/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../view_model/book_cubit/book_cubit.dart';
 
 class SearchBox extends StatelessWidget {
@@ -32,7 +30,6 @@ class SearchBox extends StatelessWidget {
               prefixIcon: IconButton(
                 icon: const Icon(
                   Icons.search,
-
                 ),
                 onPressed: () {
                   final query = controller.text;
@@ -41,7 +38,6 @@ class SearchBox extends StatelessWidget {
                   }
                 },
               ),
-
             ),
           ),
         ));

@@ -26,7 +26,6 @@ class HomeView extends StatelessWidget {
       bottomNavigationBar: const CustomBottomNavBar(
         selectedMenu: MenuState.home,
       ),
-
     );
   }
 }

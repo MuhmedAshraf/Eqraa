@@ -19,14 +19,11 @@ class Eqraa extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              BookCubit(repo: HomeRepoImplement(api: DioConsumer(dio: Dio())))
-
-        ),
+            create: (context) => BookCubit(
+                repo: HomeRepoImplement(api: DioConsumer(dio: Dio())))),
         BlocProvider(
           create: (context) => FavoritesCubit()..loadFavorites(),
         ),
-
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

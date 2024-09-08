@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:eqraa/Features/home/data/repo/book_repo/book_rebo.dart';
 import 'package:meta/meta.dart';
-
 import '../../../data/models/book_model/book_model.dart';
 
 part 'book_state.dart';

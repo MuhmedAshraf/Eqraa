@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class MainButton extends StatelessWidget {
   final String innerText;
   final void Function()? onPressed;
-  const MainButton({super.key, required this.innerText, required this.onPressed});
+
+  const MainButton(
+      {super.key, required this.innerText, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,10 @@ class MainButton extends StatelessWidget {
       ),
       child: TextButton(
         onPressed: onPressed,
-        child: Text(innerText, style:  AppStyles.textStyle14.copyWith(color: Colors.white),),
+        child: Text(
+          innerText,
+          style: AppStyles.textStyle14.copyWith(color: Colors.white),
+        ),
       ),
     );
   }

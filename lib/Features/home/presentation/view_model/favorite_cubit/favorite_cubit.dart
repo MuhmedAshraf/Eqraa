@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:eqraa/Features/home/data/models/book_model/book_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class FavoritesCubit extends Cubit<List<BookModel>> {
   FavoritesCubit() : super([]);
@@ -15,7 +13,7 @@ class FavoritesCubit extends Cubit<List<BookModel>> {
     if (favoritesJson != null) {
       List<dynamic> favoritesList = json.decode(favoritesJson);
       List<BookModel> favorites =
-      favoritesList.map((book) => BookModel.fromJson(book)).toList();
+          favoritesList.map((book) => BookModel.fromJson(book)).toList();
       emit(favorites);
     } else {
       emit([]);

@@ -1,13 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dio/dio.dart';
-import 'package:eqraa/Core/api_helper/dio_consumer.dart';
-import 'package:eqraa/Core/shared_widgets/custom_error_widget.dart';
-import 'package:eqraa/Core/shared_widgets/custom_loading.dart';
-import 'package:eqraa/Core/shared_widgets/main_button.dart';
-import 'package:eqraa/Features/home/data/repo/book_repo/home_repo_implement.dart';
 import 'package:eqraa/Features/home/presentation/view_model/book_cubit/book_cubit.dart';
-import 'package:eqraa/Features/home/presentation/views/book_details_view.dart';
-import 'package:eqraa/Features/home/presentation/views/widgets/books_listView.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/bottom_bar.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:eqraa/Features/home/presentation/views/widgets/search_box.dart';
@@ -57,8 +48,7 @@ class SearchView extends StatelessWidget {
                   return Center(child: Text(state.errMessage));
                 } else if (state is BookLoading) {
                   return const Center(child: CircularProgressIndicator());
-                }
-                else {
+                } else {
                   return const SizedBox();
                 }
               },
